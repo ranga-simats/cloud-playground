@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Playground 😂☁️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #e8f6ff;
+            transition: 0.3s;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        #runBtn {
+            padding: 15px 25px;
+            font-size: 20px;
+            border: none;
+            border-radius: 10px;
+            background: #ff4444;
+            color: white;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.2s;
+        }
+
+        #msg {
+            margin-top: 40px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        footer {
+            margin-top: 100px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Cloud Playground 🤣☁️</h1>
+    <p>Try clicking the button below. (Deployed on Cloud!)</p>
+
+    <button id="runBtn">Click Me!</button>
+    <p id="msg">Let's see how fast you are...</p>
+
+    <footer>Hosted on Cloud Platform for Student Experiment</footer>
+
+    <script>
+        const btn = document.getElementById("runBtn");
+        const msg = document.getElementById("msg");
+
+        const fun = [
+            "Too slow! 😂",
+            "Cloud runs faster than you!",
+            "Missed it again 😭",
+            "Try harder! 💀",
+            "Even AWS Lambda is quicker!",
+            "Google Cloud outruns you!",
+            "Azure > Your speed 😆",
+            "Bruhhh 🤣",
+            "Ratleedaa 🤣",
+            "Bruhh i dont care",
+            "Chaduvukondi firstuu"
+        ];
+
+        document.addEventListener("mousemove", function (e) {
+            const x = e.clientX;
+            const y = e.clientY;
+
+            const bx = btn.offsetLeft + 50;
+            const by = btn.offsetTop + 20;
+
+            const dist = Math.hypot(bx - x, by - y);
+
+            if (dist < 120) {
+                btn.style.left = Math.random() * (window.innerWidth - 150) + "px";
+                btn.style.top = Math.random() * (window.innerHeight - 150) + "px";
+
+                msg.innerHTML = fun[Math.floor(Math.random() * fun.length)];
+                document.body.style.background =
+                    `hsl(${Math.random() * 360}, 70%, 85%)`;
+            }
+        });
+
+        btn.onclick = () => {
+            msg.innerHTML = "🔥 YOU CLICKED IT! Cloud Master!";
+            document.body.style.background = "lightgreen";
+        };
+    </script>
+
+</body>
+</html>
